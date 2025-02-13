@@ -10,12 +10,20 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+
+
 # Styles CSS personnalisés avec design moderne
 st.markdown("""
     <style>
-        /* Styles globaux */
-        [data-testid="stAppViewContainer"] {
-            background-color: #f8f9fa;
+        /* Reset du thème et styles globaux */
+        [data-testid="stAppViewContainer"], 
+        [data-testid="stHeader"] {
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+        
+        [data-testid="stToolbar"] {
+            right: 2rem;
         }
         
         /* Barre latérale */
@@ -27,10 +35,18 @@ st.markdown("""
         [data-testid="stSidebar"] [data-testid="stMarkdown"] {
             color: #ffffff;
         }
+
+        [data-testid="stSidebarNav"] {
+            background-color: #1a1a1a;
+        }
+
+        [data-testid="stSidebarNav"] .css-17lntkn {
+            color: #ffffff;
+        }
         
         /* En-têtes */
         h1 {
-            color: #1a1a1a;
+            color: #1a1a1a !important;
             font-family: 'Helvetica Neue', sans-serif;
             font-weight: 700;
             font-size: 2.5rem;
@@ -40,22 +56,26 @@ st.markdown("""
         }
         
         h2 {
-            color: #333;
+            color: #333 !important;
             font-family: 'Helvetica Neue', sans-serif;
             font-weight: 600;
             margin: 1.5rem 0;
         }
         
         h3 {
-            color: #444;
+            color: #444 !important;
             font-family: 'Helvetica Neue', sans-serif;
             font-weight: 500;
         }
+
+        p {
+            color: #2e2e2e !important;
+        }
         
-        /* Conteneurs */
+        /* Conteneurs et blocs */
         .block-container {
-            padding-top: 2rem;
-            padding-bottom: 2rem;
+            padding: 3rem 1rem !important;
+            max-width: 100%;
         }
         
         /* Images */
@@ -80,9 +100,9 @@ st.markdown("""
         
         /* Boutons */
         .stButton button {
-            background-color: #1a1a1a;
-            color: white;
-            border: none;
+            background-color: #1a1a1a !important;
+            color: white !important;
+            border: none !important;
             border-radius: 4px;
             padding: 0.5rem 1rem;
             font-weight: 500;
@@ -90,12 +110,18 @@ st.markdown("""
         }
         
         .stButton button:hover {
-            background-color: #333;
+            background-color: #333 !important;
+            border: none !important;
         }
         
-        /* Sélecteur */
+        /* Sélecteurs et inputs */
         .stSelectbox {
             margin-bottom: 2rem;
+        }
+
+        .stSelectbox > div > div {
+            background-color: white;
+            color: #1a1a1a;
         }
         
         /* Séparateurs */
@@ -136,6 +162,12 @@ st.markdown("""
         .profile-image {
             border-radius: 50%;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Expander */
+        .streamlit-expanderHeader {
+            background-color: white;
+            color: #1a1a1a;
         }
     </style>
 """, unsafe_allow_html=True)
