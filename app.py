@@ -195,7 +195,7 @@ with st.sidebar:
     st.markdown("<h3 style='text-align: center; color: white;'>Elio Duclos", unsafe_allow_html=True)
     st.markdown("---")
     menu = ["Accueil", "Galerie", "À propos"]
-    choice = st.selectbox("", menu)
+    choice = st.selectbox("Navigation", menu)
     st.markdown("---")
     st.markdown("<div style='position: fixed; bottom: 0; padding: 1rem; color: white;'>© 2025 Elio Duclos</div>", unsafe_allow_html=True)
 
