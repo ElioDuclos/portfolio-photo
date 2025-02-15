@@ -204,7 +204,7 @@ if choice == "Accueil":
     st.title("Capturer l'instant, révéler l'émotion")
     
     try:
-        cover_image = Image.open("/workspaces/portfolio-photo/20240413-001905-Elio-Duclos_cover.jpg")
+        cover_image = Image.open("20240413-001905-Elio-Duclos_cover.jpg")
         st.image(cover_image, use_container_width=True)
     except:
         st.image("https://via.placeholder.com/1200x600?text=Ajoutez+une+image+de+couverture", use_container_width=True)
@@ -268,7 +268,7 @@ elif choice == "À propos":
     
     with col1:
         try:
-            profile_image = Image.open("/workspaces/portfolio-photo/photo_cv.jpg")
+            profile_image = Image.open("photo_cv.jpg")
             st.image(profile_image)
         except:
             print('ouiii')
