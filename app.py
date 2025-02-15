@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 import os
+import sys
 
 # Configuration de la page
 st.set_page_config(
@@ -185,6 +186,7 @@ def load_images(folder_path):
                 })
     except Exception as e:
         st.warning(f"Erreur lors du chargement des images : {str(e)}")
+    
     return images
 
 # Sidebar avec logo/nom du photographe
@@ -202,7 +204,7 @@ if choice == "Accueil":
     st.title("Capturer l'instant, révéler l'émotion")
     
     try:
-        cover_image = Image.open("20240413-001905-Elio-Duclos (1).jpg")
+        cover_image = Image.open("/workspaces/portfolio-photo/20240413-001905-Elio-Duclos_cover.jpg")
         st.image(cover_image, use_container_width=True)
     except:
         st.image("https://via.placeholder.com/1200x600?text=Ajoutez+une+image+de+couverture", use_container_width=True)
@@ -228,14 +230,11 @@ if choice == "Accueil":
 elif choice == "Galerie":
     st.title("Portfolio")
     
-    categories = ["Portraits", "Paysages", "Architecture", "Street"]
-    selected_category = st.selectbox("Explorer", categories)
-    
     # Configuration de l'affichage en grille
     gallery = st.container()
     with gallery:
         try:
-            folder_path = f"photos/{selected_category}"
+            folder_path = f"photos/"
             cols = st.columns(3)
             images = load_images(folder_path)
             
@@ -256,7 +255,6 @@ elif choice == "Galerie":
                             # L'image elle-même devient cliquable
                             if st.image(img, use_container_width=True):
                                 st.session_state.selected_image = image_info['path']
-                        st.markdown(f"<p class='caption'>{image_info['name']}</p>", unsafe_allow_html=True)
                     except Exception as e:
                         st.error(f"Erreur lors du chargement de l'image {image_info['name']}")
     
@@ -270,8 +268,8 @@ elif choice == "À propos":
     
     with col1:
         try:
-            profile_image = Image.open("photo_cv.jpg")
-            st.image(profile_image, width=300, clazz="profile-image")
+            profile_image = Image.open("/workspaces/portfolio-photo/photo_cv.jpg")
+            st.image(profile_image)
         except:
             print('ouiii')
             st.image("https://via.placeholder.com/300x300?text=Photo+de+profil", width=300)
@@ -286,9 +284,8 @@ elif choice == "À propos":
         Mon approche combine créativité, technique et émotion pour créer des images qui restent.
         
         ### Parcours
-        - 10 ans d'expérience en photographie
+        - 2 ans d'expérience en photographie
         - Formation à CentraleSupélec
-        - Expositions : [Galeries/Lieux]
         """)
         
         st.markdown("""
